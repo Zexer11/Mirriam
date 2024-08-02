@@ -4,7 +4,7 @@ body, html {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif; /* Added font-family from Google Fonts */
 }
 
 .background-image {
@@ -18,8 +18,8 @@ body, html {
 }
 
 .card {
-    width: 75vw; /* 75% of the viewport width */
-    height: 75vh; /* 75% of the viewport height */
+    width: 90vw; /* 90% of the viewport width */
+    height: auto; /* Let the height adjust based on content */
     border: 2px solid rgba(255, 255, 255, 0.5);
     border-radius: 20px;
     background: white; /* Solid white background */
@@ -29,16 +29,16 @@ body, html {
     transform: translate(-50%, -50%);
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
     display: flex;
-    flex-direction: row;
+    flex-direction: column; /* Changed to column for better stacking on small screens */
     box-sizing: border-box;
+    padding: 20px; /* Added padding for better spacing */
 }
 
 .card-left, .card-right {
-    flex: 1;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
     position: relative;
 }
 
@@ -47,32 +47,20 @@ body, html {
 }
 
 .card-left h1 {
-    font-size: 3em; /* Big font size for the header */
-    margin: 0;
-    position: absolute;
-    top: 1cm; /* 1 cm from the top of the card */
-    left: 50%;
-    transform: translateX(-50%);
+    font-size: 2em; /* Adjusted font size for better readability */
+    margin: 10px 0;
+    font-family: 'Great Vibes', cursive; /* Using the imported font */
 }
 
 .card-left p {
-    font-size: 1.2em; /* Smaller text below the header */
-    margin: 0;
-    position: absolute;
-    top: calc(1cm + 3cm); /* 3 cm below the header */
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: 'Great Vibes', cursive;
+    font-size: 1em; /* Adjusted font size for better readability */
+    margin: 10px 0;
 }
 
 .click-message {
     font-size: 0.9em;
     font-style: italic;
-    margin-top: 2cm;
-    position: absolute;
-    bottom: 1cm;
-    left: 50%;
-    transform: translateX(-50%);
+    margin-top: 20px;
     color: grey; /* Subtle color */
 }
 
@@ -80,10 +68,11 @@ body, html {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 20px;
 }
 
 .video-image {
-    width: 100%; /* Adjust to fit the right side */
+    width: 80%; /* Adjust to fit the right side */
     height: auto;
     cursor: pointer;
     border: 2px solid #fff;
@@ -98,34 +87,40 @@ body, html {
 /* Media Queries for Responsive Design */
 @media (max-width: 768px) {
     .card {
-        flex-direction: column;
-        width: 90vw;
-        height: auto;
-    }
-
-    .card-left, .card-right {
-        flex: none;
-        width: 100%;
-        padding: 10px;
+        width: 95vw; /* Increase width to 95% for smaller screens */
     }
 
     .card-left h1 {
-        font-size: 2em;
-        top: 0.5cm;
+        font-size: 1.5em; /* Adjusted font size for better readability */
     }
 
     .card-left p {
-        font-size: 1em;
-        top: calc(0.5cm + 2em);
+        font-size: 0.9em; /* Adjusted font size for better readability */
     }
 
     .click-message {
         font-size: 0.8em;
-        bottom: 0.5cm;
     }
 
     .video-image {
-        width: 80%;
-        margin-top: 10px;
+        width: 90%; /* Increase image width for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .card-left h1 {
+        font-size: 1.2em; /* Further adjustment for very small screens */
+    }
+
+    .card-left p {
+        font-size: 0.8em;
+    }
+
+    .click-message {
+        font-size: 0.7em;
+    }
+
+    .video-image {
+        width: 100%; /* Full width for very small screens */
     }
 }
