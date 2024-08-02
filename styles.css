@@ -29,6 +29,7 @@ body, html {
     transform: translate(-50%, -50%);
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
     display: flex;
+    flex-direction: row;
     box-sizing: border-box;
 }
 
@@ -61,6 +62,7 @@ body, html {
     top: calc(1cm + 3cm); /* 3 cm below the header */
     left: 50%;
     transform: translateX(-50%);
+    font-family: 'Great Vibes', cursive;
 }
 
 .click-message {
@@ -91,4 +93,39 @@ body, html {
 
 .video-image:hover {
     opacity: 0.8;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .card {
+        flex-direction: column;
+        width: 90vw;
+        height: auto;
+    }
+
+    .card-left, .card-right {
+        flex: none;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .card-left h1 {
+        font-size: 2em;
+        top: 0.5cm;
+    }
+
+    .card-left p {
+        font-size: 1em;
+        top: calc(0.5cm + 2em);
+    }
+
+    .click-message {
+        font-size: 0.8em;
+        bottom: 0.5cm;
+    }
+
+    .video-image {
+        width: 80%;
+        margin-top: 10px;
+    }
 }
